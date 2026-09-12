@@ -21,7 +21,7 @@ export class CheckoutPage extends BasePage {
         this.firstNameInput = page.locator('#first-name');
         this.lastNameInput = page.locator('#last-name');
         this.postalCodeInput = page.locator('#postal-code');
-        this.continueButton = page.locator('button:has-text("Continue")');
+        this.continueButton = page.locator('#continue');
         this.cancelButton = page.locator('button:has-text("Cancel")');
         this.finishButton = page.locator('button:has-text("Finish")');
         this.checkoutOverviewTitle = page.locator('.title');    

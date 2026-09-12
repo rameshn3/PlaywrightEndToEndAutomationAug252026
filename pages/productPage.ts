@@ -66,6 +66,8 @@ export class ProductPage extends BasePage {
         const count = addButtons.length;
         for (let i = 0; i < count; i++) {
             await addButtons[i].click();
+            //add some wait to avoid flakiness
+            await this.page.waitForTimeout(500);
         }
     }
 
