@@ -28,7 +28,7 @@ async isProductInCart(productName:string){
 }
 
 //cart page is loaded by checking the title
-async isCartPageLoaded(): Promise<boolean> {    
+async isCartPageLoaded(): Promise<boolean> { 
     const txt = await this.cartTitle.textContent();
     return txt?.trim() === 'Your Cart';
 }

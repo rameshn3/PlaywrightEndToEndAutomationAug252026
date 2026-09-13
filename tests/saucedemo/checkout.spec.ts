@@ -22,6 +22,7 @@ test.describe('checkout page tests', () => {
         const cartCount = await productPage.getCartItemCount();
         await expect(cartCount).toBeGreaterThan(0);
         await productPage.goToCart();
+        // ensure we are on cart page
         await expect(await cartPage.isCartPageLoaded()).toBeTruthy();
         await cartPage.clickCheckoutButton();
         await expect(checkoutPage.isCheckoutPageLoaded()).toBeTruthy();
