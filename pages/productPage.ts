@@ -64,10 +64,12 @@ export class ProductPage extends BasePage {
     async addAllProductsToCart() {
         const addButtons = await this.addToCartButton.elementHandles();
         const count = addButtons.length;
+        console.log(`Total products found: ${count}`);
+         await this.page.waitForTimeout(1000);
         for (let i = 0; i < count; i++) {
             await addButtons[i].click();
             //add some wait to avoid flakiness
-            await this.page.waitForTimeout(500);
+            await this.page.waitForTimeout(1000);
         }
     }
 

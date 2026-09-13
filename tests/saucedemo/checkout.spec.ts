@@ -58,5 +58,4 @@ test('Verify cancel button in checkout overview page', async ({ checkoutPage,pro
      test.afterEach(async ({ productPage }) => {
             await productPage.logout();
         });
-
 });
