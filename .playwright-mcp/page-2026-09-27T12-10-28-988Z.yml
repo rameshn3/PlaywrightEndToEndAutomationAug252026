@@ -1,0 +1,142 @@
+- generic [ref=f12e3]:
+  - generic:
+    - complementary [ref=f12e4]:
+      - navigation "Sidepanel" [ref=f12e5]:
+        - generic [ref=f12e6]:
+          - link [ref=f12e7] [cursor=pointer]:
+            - /url: https://www.orangehrm.com/
+            - img "client brand banner" [ref=f12e9]
+          - text: 
+        - generic [ref=f12e10]:
+          - generic [ref=f12e11]:
+            - generic [ref=f12e12]:
+              - textbox "Search" [ref=f12e15]
+              - button "" [ref=f12e16] [cursor=pointer]
+            - separator [ref=f12e18]
+          - list [ref=f12e19]:
+            - listitem [ref=f12e20]:
+              - link "Admin" [ref=f12e21] [cursor=pointer]:
+                - /url: /web/index.php/admin/viewAdminModule
+            - listitem [ref=f12e25]:
+              - link "PIM" [ref=f12e26] [cursor=pointer]:
+                - /url: /web/index.php/pim/viewPimModule
+            - listitem [ref=f12e41]:
+              - link "Leave" [ref=f12e42] [cursor=pointer]:
+                - /url: /web/index.php/leave/viewLeaveModule
+            - listitem [ref=f12e46]:
+              - link "Time" [ref=f12e47] [cursor=pointer]:
+                - /url: /web/index.php/time/viewTimeModule
+            - listitem [ref=f12e54]:
+              - link "Recruitment" [ref=f12e55] [cursor=pointer]:
+                - /url: /web/index.php/recruitment/viewRecruitmentModule
+            - listitem [ref=f12e62]:
+              - link "My Info" [ref=f12e63] [cursor=pointer]:
+                - /url: /web/index.php/pim/viewMyDetails
+            - listitem [ref=f12e70]:
+              - link "Performance" [ref=f12e71] [cursor=pointer]:
+                - /url: /web/index.php/performance/viewPerformanceModule
+            - listitem [ref=f12e80]:
+              - link "Dashboard" [ref=f12e81] [cursor=pointer]:
+                - /url: /web/index.php/dashboard/index
+            - listitem [ref=f12e85]:
+              - link "Directory" [ref=f12e86] [cursor=pointer]:
+                - /url: /web/index.php/directory/viewDirectory
+            - listitem [ref=f12e90]:
+              - link "Maintenance" [ref=f12e91] [cursor=pointer]:
+                - /url: /web/index.php/maintenance/viewMaintenanceModule
+            - listitem [ref=f12e96]:
+              - link "Claim" [ref=f12e97] [cursor=pointer]:
+                - /url: /web/index.php/claim/viewClaimModule
+            - listitem [ref=f12e105]:
+              - link "Buzz" [ref=f12e106] [cursor=pointer]:
+                - /url: /web/index.php/buzz/viewBuzz
+    - banner [ref=f12e110]:
+      - generic [ref=f12e111]:
+        - generic [ref=f12e112]:
+          - text: 
+          - heading "Claim" [level=6] [ref=f12e114]
+        - link [ref=f12e116]:
+          - /url: https://orangehrm.com/open-source/upgrade-to-advanced
+          - button "Upgrade" [ref=f12e117] [cursor=pointer]
+        - list [ref=f12e123]:
+          - listitem [ref=f12e124]:
+            - generic [ref=f12e125] [cursor=pointer]:
+              - img "profile picture" [ref=f12e126]
+              - paragraph [ref=f12e127]: manda user
+              - generic [ref=f12e128]: 
+      - navigation "Topbar Menu" [ref=f12e130]:
+        - list [ref=f12e131]:
+          - listitem [ref=f12e132] [cursor=pointer]:
+            - generic [ref=f12e133]:
+              - text: Configuration
+              - generic [ref=f12e134]: 
+          - listitem [ref=f12e135] [cursor=pointer]:
+            - link "Submit Claim" [ref=f12e136]:
+              - /url: "#"
+          - listitem [ref=f12e137] [cursor=pointer]:
+            - link "My Claims" [ref=f12e138]:
+              - /url: "#"
+          - listitem [ref=f12e139] [cursor=pointer]:
+            - link "Employee Claims" [ref=f12e140]:
+              - /url: "#"
+          - listitem [ref=f12e141] [cursor=pointer]:
+            - link "Assign Claim" [ref=f12e142]:
+              - /url: "#"
+          - button "" [ref=f12e144] [cursor=pointer]
+  - generic [ref=f12e146]:
+    - generic [ref=f12e147]:
+      - generic [ref=f12e148]:
+        - generic [ref=f12e149]:
+          - heading "Employee Claims" [level=5] [ref=f12e151]
+          - button "" [ref=f12e154] [cursor=pointer]
+        - separator [ref=f12e156]
+        - generic [ref=f12e158]:
+          - generic [ref=f12e160]:
+            - generic [ref=f12e162]:
+              - generic [ref=f12e163]: Employee Name
+              - textbox "Type for hints..." [ref=f12e168]
+            - generic [ref=f12e170]:
+              - generic [ref=f12e171]: Reference Id
+              - textbox "Type for hints..." [ref=f12e176]
+            - generic [ref=f12e178]:
+              - generic [ref=f12e179]: Event Name
+              - generic [ref=f12e183] [cursor=pointer]:
+                - generic [ref=f12e184]: "-- Select --"
+                - generic [ref=f12e185]: 
+            - generic [ref=f12e188]:
+              - generic [ref=f12e189]: Status
+              - generic [ref=f12e193] [cursor=pointer]:
+                - generic [ref=f12e194]: "-- Select --"
+                - generic [ref=f12e195]: 
+          - generic [ref=f12e198]:
+            - generic [ref=f12e200]:
+              - generic [ref=f12e201]: From Date
+              - generic [ref=f12e205]:
+                - textbox "yyyy-dd-mm" [ref=f12e206]
+                - generic [ref=f12e207] [cursor=pointer]: 
+            - generic [ref=f12e209]:
+              - generic [ref=f12e210]: To Date
+              - generic [ref=f12e214]:
+                - textbox "yyyy-dd-mm" [ref=f12e215]
+                - generic [ref=f12e216] [cursor=pointer]: 
+            - generic [ref=f12e218]:
+              - generic [ref=f12e219]: Include
+              - generic [ref=f12e223] [cursor=pointer]:
+                - generic [ref=f12e224]: Current Employees Only
+                - generic [ref=f12e225]: 
+          - separator [ref=f12e227]
+          - generic [ref=f12e228]:
+            - button "Reset" [ref=f12e229] [cursor=pointer]
+            - button "Search" [ref=f12e230] [cursor=pointer]
+      - generic [ref=f12e231]:
+        - button " Assign Claim" [ref=f12e233] [cursor=pointer]:
+          - generic [ref=f12e234]: 
+          - text: Assign Claim
+        - table [ref=f12e236]
+    - generic [ref=f12e241]:
+      - paragraph [ref=f12e242]: OrangeHRM OS 5.9
+      - paragraph [ref=f12e243]:
+        - text: © 2005 - 2026
+        - link "OrangeHRM, Inc" [ref=f12e244] [cursor=pointer]:
+          - /url: http://www.orangehrm.com
+        - text: . All rights reserved.
