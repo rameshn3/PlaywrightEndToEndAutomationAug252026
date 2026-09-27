@@ -7,6 +7,7 @@
     "test:ui": "cross-env ENV_ID=dev npx playwright test tests/saucedemo --project=chromium",
     "test:api": "cross-env ENV_ID=qa npx playwright test tests/booking --project=chromium",
     "test:heroku": "cross-env ENV_ID=qa npx playwright test tests/herokuapp --project=chromium",
+    "test:orangehrm": "cross-env ENV_ID=uat npx playwright test tests/orangehrm --project=chromium",
     "test:all": "npm run test:ui && npm run test:api && npm run test:heroku",
     "test:headed": "npx playwright test --headed",
     "test:debug": "npx playwright test --debug",
