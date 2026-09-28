@@ -102,6 +102,7 @@ class OrangeHrmPimPage extends BasePage {
   readonly resetButton: Locator;
   readonly employeeTable: Locator;
   readonly employeeRows: Locator;
+  readonly employeeSuggestions: Locator;
 
   constructor(page: Page) {
     super(page);
@@ -117,6 +118,7 @@ class OrangeHrmPimPage extends BasePage {
     this.resetButton = page.getByRole('button', { name: 'Reset', exact: true });
     this.employeeTable = page.locator('.oxd-table');
     this.employeeRows = page.locator('.oxd-table-body .oxd-table-row');
+    this.employeeSuggestions = page.locator('.oxd-autocomplete-option');
   }
 
   async openFromSidebar() {
@@ -129,6 +131,13 @@ class OrangeHrmPimPage extends BasePage {
 
   employeeRow(name: string) {
     return this.employeeRows.filter({ hasText: name }).first();
+  }
+
+  async firstEmployeeName() {
+    const firstRow = this.employeeRows.first();
+    const firstName = await firstRow.locator('.oxd-table-cell').nth(2).innerText();
+    const lastName = await firstRow.locator('.oxd-table-cell').nth(3).innerText();
+    return `${firstName} ${lastName}`.trim();
   }
 }
 
@@ -167,12 +176,72 @@ class OrangeHrmLeavePage extends BasePage {
   }
 }
 
+class OrangeHrmPerformancePage extends BasePage {
+  readonly manageReviewsHeading: Locator;
+  readonly employeeReviewsHeading: Locator;
+  readonly employeeFilter: Locator;
+  readonly dateFilters: Locator;
+  readonly searchButton: Locator;
+  readonly resetButton: Locator;
+  readonly reviewRows: Locator;
+  readonly noReviewsMessage: Locator;
+
+  constructor(page: Page) {
+    super(page);
+    this.manageReviewsHeading = page.getByRole('heading', { name: /Manage Reviews/ });
+    this.employeeReviewsHeading = page.getByRole('heading', { name: 'Employee Reviews', exact: true });
+    this.employeeFilter = page.getByPlaceholder('Type for hints...');
+    this.dateFilters = page.locator('input[placeholder="yyyy-dd-mm"]');
+    this.searchButton = page.getByRole('button', { name: 'Search', exact: true });
+    this.resetButton = page.getByRole('button', { name: 'Reset', exact: true });
+    this.reviewRows = page.locator('.oxd-table-body .oxd-table-row');
+    this.noReviewsMessage = page.locator('span.oxd-text--span').filter({ hasText: /^No Records Found$/ });
+  }
+
+  async openFromSidebar() {
+    await this.page.locator('a[href*="performance/viewPerformanceModule"]').click();
+  }
+}
+
+class OrangeHrmDirectoryPage extends BasePage {
+  readonly directoryHeading: Locator;
+  readonly employeeNameFilter: Locator;
+  readonly jobTitleFilter: Locator;
+  readonly searchButton: Locator;
+  readonly resetButton: Locator;
+  readonly directoryCards: Locator;
+  readonly noResultsMessage: Locator;
+  readonly employeeSuggestions: Locator;
+
+  constructor(page: Page) {
+    super(page);
+    this.directoryHeading = page.locator('.oxd-table-filter-title').getByText('Directory', { exact: true });
+    this.employeeNameFilter = page.getByPlaceholder('Type for hints...');
+    this.jobTitleFilter = page.locator('.oxd-input-group').filter({ hasText: /^Job Title/ }).locator('.oxd-select-text');
+    this.searchButton = page.getByRole('button', { name: 'Search', exact: true });
+    this.resetButton = page.getByRole('button', { name: 'Reset', exact: true });
+    this.directoryCards = page.locator('.oxd-grid-item:has(p)');
+    this.noResultsMessage = page.locator('span.oxd-text--span').filter({ hasText: /^No Records Found$/ });
+    this.employeeSuggestions = page.locator('.oxd-autocomplete-option');
+  }
+
+  async openFromSidebar() {
+    await this.page.locator('a[href*="directory/viewDirectory"]').click();
+  }
+
+  async firstEmployeeName() {
+    return (await this.page.locator('.oxd-grid-item p').first().innerText()).trim();
+  }
+}
+
 type OrangeHrmFixtures = {
   loginPage: OrangeHrmLoginPage;
   dashboardPage: OrangeHrmDashboardPage;
   adminPage: OrangeHrmAdminPage;
   pimPage: OrangeHrmPimPage;
   leavePage: OrangeHrmLeavePage;
+  performancePage: OrangeHrmPerformancePage;
+  directoryPage: OrangeHrmDirectoryPage;
 };
 
 export const test = base.extend<OrangeHrmFixtures>({
@@ -190,6 +259,12 @@ export const test = base.extend<OrangeHrmFixtures>({
   },
   leavePage: async ({ page }, use) => {
     await use(new OrangeHrmLeavePage(page));
+  },
+  performancePage: async ({ page }, use) => {
+    await use(new OrangeHrmPerformancePage(page));
+  },
+  directoryPage: async ({ page }, use) => {
+    await use(new OrangeHrmDirectoryPage(page));
   },
 });
 
