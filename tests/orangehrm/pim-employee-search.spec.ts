@@ -11,11 +11,17 @@ test.describe('Post-Login Workflows', () => {
     await expect(pimPage.employeeInformationHeading).toBeVisible();
     await expect(pimPage.employeeNameFilter).toBeVisible();
     await expect(pimPage.employeeTable).toBeVisible();
+    await expect(pimPage.employeeRows.first()).toBeVisible();
 
     // 2. Search for an existing employee and verify matching results.
-    await pimPage.employeeNameFilter.fill('ABBQA');
+    const employeeName = await pimPage.firstEmployeeName();
+    const employeeLastName = employeeName.split(/\s+/).at(-1) ?? employeeName;
+    await pimPage.employeeNameFilter.fill(employeeName);
+    await expect(pimPage.employeeSuggestions.first()).toBeVisible();
+    await pimPage.employeeSuggestions.first().click();
     await pimPage.searchButton.click();
-    await expect(pimPage.employeeRow('ABBQA')).toBeVisible();
+    await expect(pimPage.employeeRows).toHaveCount(1);
+    await expect(pimPage.employeeRows.first()).toContainText(employeeLastName);
 
     // 3. Reset and verify the default employee list returns.
     await pimPage.resetButton.click();

@@ -12,3 +12,5 @@ node_modules/
 test-results.json
 test-results.xml
 
+# Playwright CLI output (may contain credentials)
+.playwright-cli/
