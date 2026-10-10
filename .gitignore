@@ -11,6 +11,8 @@ node_modules/
 /test-results/*
 test-results.json
 test-results.xml
+reporting-labs/*
+/reporting-labs.history.json
 
 # Playwright CLI output (may contain credentials)
 .playwright-cli/
