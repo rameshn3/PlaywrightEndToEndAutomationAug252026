@@ -1,6 +1,6 @@
 import { defineConfig, devices } from '@playwright/test';
 import { listen } from 'node:quic';
-
+import { reportinglabs } from 'reporting-labs';
 /**
  * Read environment variables from file.
  * https://github.com/motdotla/dotenv
@@ -32,7 +32,8 @@ export default defineConfig({
     ['json', { outputFile: 'test-results.json' }], 
     ['list'],
     ['junit', { outputFile: 'test-results.xml' }],
-    ['allure-playwright']
+    ['allure-playwright'],
+    ['reporting-labs', reportinglabs],
   ],
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
