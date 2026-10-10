@@ -1,0 +1,16 @@
+Schema validation errors: [
+  {
+    instancePath: '',
+    schemaPath: '#/required',
+    keyword: 'required',
+    params: { missingProperty: 'bookingid' },
+    message: "must have required property 'bookingid'"
+  },
+  {
+    instancePath: '',
+    schemaPath: '#/required',
+    keyword: 'required',
+    params: { missingProperty: 'booking' },
+    message: "must have required property 'booking'"
+  }
+]
